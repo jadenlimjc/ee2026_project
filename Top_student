@@ -1,0 +1,32 @@
+`timescale 1ns / 1ps
+
+//////////////////////////////////////////////////////////////////////////////////
+//
+//  FILL IN THE FOLLOWING INFORMATION:
+//  STUDENT A NAME: 
+//  STUDENT B NAME:
+//  STUDENT C NAME: 
+//  STUDENT D NAME:  
+//
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Top_Student (input CLOCK, btnU,btnC,btnD, output cs, sdin, sclk,d_cn,resn,vccen,pmoden);
+wire clk6p25;
+wire fb;
+wire [12:0] pixel_index;
+wire [15:0] Oled_data;
+wire [7:0] x; wire [6:0] y;
+clk6p25m u1 (CLOCK,7,clk6p25);          
+Oled_Display u2 (.clk(clk6p25),.pixel_data(Oled_data),.cs(cs), .sdin(sdin), .sclk(sclk),.d_cn(d_cn),
+.resn(resn), .vccen(vccen), .pmoden(pmoden), .reset(0), .frame_begin(fb), .pixel_index(pixel_index));
+//MouseCtl u3 (.clk(CLOCK), .ps2_clk(PS2Clk), .ps2_data(PS2Data), .value(0), .setx(0),.sety(0),
+//.setmax_x(0),.setmax_y(0), .left(left), .right(right), .middle(centre));
+xy_convert u5 (pixel_index, x,y);
+oled_data u6 (CLOCK,btnU,btnC,btnD,x,y,Oled_data);
+
+//assign led[15] = left ? 1 : 0;
+//assign led[14] = centre ? 1 : 0;
+//assign led[13] = right ? 1 : 0;
+
+endmodule
