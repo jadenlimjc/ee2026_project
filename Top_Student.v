@@ -13,7 +13,7 @@
 
 module Top_Student (input clk,btnU,btnC,[15:0]sw,output [7:0]JB,[15:0]led,[6:0]seg, inout PS2Clk,inout PS2Data
 );
-wire clk25,clk12p5,clk6p25,slowclk;
+wire clk25,clk12p5,clk6p25,slowclk,clk_1k;
 wire [15:0] oled_data;
 wire [15:0] color;
 reg [15:0] red = 16'hf800;
@@ -44,6 +44,7 @@ custom_clock clock0(clk,7,clk6p25);
 custom_clock clock1(clk,1,clk25);
 custom_clock clock2(clk,3,clk12p5);
 custom_clock clock3(clk,4999999,slowclk);
+custom_clock clock4(clk,49999,clk_1k);
 
 
  Oled_Display oleddisplay(clk6p25, btnC, frame_begin, sending_pixels,
@@ -52,7 +53,7 @@ JB[7]);
 //  MouseCtl mousectl(clk,btnC,xpos,ypos,zpos,left,middle,right,new_event,value,setx,sety,setmax_x,setmax_y,PS2Clk,PS2Data);
   
 //  paint p(clk,clk25,clk12p5,clk6p25,slowclk,left,right,enable,xpos,ypos,pixel_index,led,seg,oled_data);
-     task_a taska(clk,clk25,clk6p25,btnU, pixel_index, color);
+     task_a taska(clk,clk25,clk6p25,clk_1k,btnU, pixel_index, color);
   
       assign oled_data = color;
      
