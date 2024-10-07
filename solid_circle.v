@@ -20,15 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module solid_circle(input clk25, [12:0] pixel_index, [15:0] color_in, output reg [15:0]color
-
+module solid_circle(
+    input clk25,
+    input [12:0] pixel_index,
+    input [15:0] color_in,
+    output reg [15:0]color
     );
     
     always @(posedge clk25)begin 
-        if(((pixel_index%96 -48)*(pixel_index%96-48)+ (pixel_index/96 -32)*(pixel_index/96 -32)) >= 0 && ((pixel_index%96-48)*(pixel_index%96-48) + (pixel_index/96 -32)*(pixel_index/96 -32)) <= 64 )begin
-        color <= color_in;
-        end
+        if(((pixel_index%96 -48)*(pixel_index%96-48)+ (pixel_index/96 -32)*(pixel_index/96 -32)) >= 0 && ((pixel_index%96-48)*(pixel_index%96-48) + (pixel_index/96 -32)*(pixel_index/96 -32)) <= 64 )
+            color <= color_in;
         else color<=0;
-        end
+    end
 
 endmodule

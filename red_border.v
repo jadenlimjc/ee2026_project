@@ -20,23 +20,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module red_border(input clk25, [12:0] pixel_index, output reg [15:0]color
-
+module red_border(
+    input clk25,
+    input [12:0] pixel_index,
+    output reg [15:0]color
     );
+    
     reg [15:0] red =16'hF800 ;
     reg black;
     always @(posedge clk25)begin 
-   if(pixel_index/96 >= 0 && pixel_index/96 < 4  || pixel_index/96 > 60 && pixel_index/96  <= 64 )begin
-        color <= black;
-        end
-        else if(pixel_index%96 >= 0 && pixel_index%96 < 4  || pixel_index%96 >92  && pixel_index%96  <= 96 )begin
-        color <=black;
-        end
-        else if(pixel_index/96 >= 4 && pixel_index/96  < 7 || pixel_index/96 > 57 && pixel_index/96  <= 60 )begin
-        color <= red;
-        end
-        else if(pixel_index%96 >= 4 && pixel_index%96  < 7 || pixel_index%96 > 89 && pixel_index%96  <= 92 )begin
-        color <= red;
-        end else color<=0;
-        end
+        if (pixel_index/96 >= 0 && pixel_index/96 < 4  || pixel_index/96 > 60 && pixel_index/96  <= 64)
+            color <= black;
+        else if(pixel_index%96 >= 0 && pixel_index%96 < 4  || pixel_index%96 >92  && pixel_index%96  <= 96 )
+            color <=black;
+        else if(pixel_index/96 >= 4 && pixel_index/96  < 7 || pixel_index/96 > 57 && pixel_index/96  <= 60 )
+            color <= red;
+        else if(pixel_index%96 >= 4 && pixel_index%96  < 7 || pixel_index%96 > 89 && pixel_index%96  <= 92 )
+            color <= red;
+        else color<=0;
+    end
+        
 endmodule
