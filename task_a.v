@@ -20,9 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module task_a(input clk,clk25,clk6p25,clk_1k,btnU, [12:0] pixel_index, output reg [15:0] selected_color
-
-    );
+module task_a(
+    input clk,
+    input clk25,
+    input clk6p25,
+    input clk1k,
+    input btnU,
+    input [12:0] pixel_index,
+    output reg [15:0] selected_color
+);
    wire [15:0] color_border;
    wire [15:0] greenCircle;
    wire [15:0] orangeCircle;
@@ -57,7 +63,7 @@ module task_a(input clk,clk25,clk6p25,clk_1k,btnU, [12:0] pixel_index, output re
     create_doughnut whiteD(clk25,pixel_index,white,whiteDoughnut);
 
 
-     always @(posedge clk_1k) begin
+     always @(posedge clk1k) begin
      if (count > 6)begin
      count <= 0;
      end

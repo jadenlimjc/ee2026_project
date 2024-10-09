@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08.10.2024 00:21:09
+// Create Date: 08.10.2024 00:30:21
 // Design Name: 
-// Module Name: solid_square
+// Module Name: count
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,17 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module solid_square(
-    input clk25,
-    [12:0] pixel_index,
-    [15:0]color_in,
-    output reg [15:0]color
+module count (
+    input button,
+    output reg [2:0] step = 1
 );
-    
-    always @(posedge clk25)begin 
-        if((pixel_index%96 >= 48-6) && (pixel_index%96 <= 48+6) && (pixel_index/96 >= 32-6) && (pixel_index/96 <=32+6) )begin
-        color <= color_in;
-        end else color<=0;
+
+always @ (posedge button)
+begin
+if (step < 4)
+    begin
+    step = step + 1;
     end
-    
+else
+    begin 
+    step = 1;
+    end
+end
+
 endmodule

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 08.10.2024 00:21:09
+// Create Date: 03.10.2024 14:11:15
 // Design Name: 
-// Module Name: solid_square
+// Module Name: custom_clock
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,17 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module solid_square(
-    input clk25,
-    [12:0] pixel_index,
-    [15:0]color_in,
-    output reg [15:0]color
-);
+module custom_clock(input clk, [31:0] cycle_delay, output reg clock_signal = 0);
+
+    reg [31:0] counter = 0;
     
-    always @(posedge clk25)begin 
-        if((pixel_index%96 >= 48-6) && (pixel_index%96 <= 48+6) && (pixel_index/96 >= 32-6) && (pixel_index/96 <=32+6) )begin
-        color <= color_in;
-        end else color<=0;
+    always @ (posedge clk)
+    begin
+        counter <= (counter >= cycle_delay) ? 0 : counter + 1;
+        clock_signal <= (counter == 0) ? ~clock_signal : clock_signal;
     end
     
 endmodule
