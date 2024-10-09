@@ -39,9 +39,6 @@ if (start == 1)
         step <= 1;
         end
     end
-else if (start == 0)
-    begin
-    step <= step;
     end
 end
 
