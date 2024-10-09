@@ -28,7 +28,7 @@ module count (
 
 always @ (posedge button)
 begin
-if (start)
+if (start == 1)
     begin
     if (step < 4)
         begin
@@ -38,7 +38,8 @@ if (start)
         begin 
         step = 1;
         end
-else
+    end
+else if (start == 0)
     begin
     step = step;
     end
