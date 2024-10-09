@@ -32,16 +32,16 @@ if (start == 1)
     begin
     if (step < 4)
         begin
-        step = step + 1;
+        step <= step + 1;
         end
     else
         begin 
-        step = 1;
+        step <= 1;
         end
     end
 else if (start == 0)
     begin
-    step = step;
+    step <= step;
     end
 end
 
