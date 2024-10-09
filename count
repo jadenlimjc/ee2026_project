@@ -39,7 +39,6 @@ if (start == 1)
         step <= 1;
         end
     end
-    end
 end
 
 endmodule
