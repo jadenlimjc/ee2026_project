@@ -37,6 +37,7 @@ module task_b (
     assign y = pixel_index / 96;
     
     wire [2:0] stepU, stepC, stepD;
+    wire [2:0] stepu,stepc,stepd;
     wire [15:0] top, middle, bottom;
     wire up, centre, down;
     button_press u7 (CLOCK,btnU,up );
@@ -45,9 +46,12 @@ module task_b (
     count u1 (up,start,stepU);
     count u2 (centre,start, stepC);
     count u3 (down, start,stepD);
-    square_color u4 (CLOCK, stepU, top);
-    square_color u5 (CLOCK, stepC, middle);
-    square_color u6 (CLOCK, stepD,bottom);
+    assign stepu = (sw == 16'b0010000100110101) ? stepU : 1;
+    assign stepc = (sw == 16'b0010000100110101) ? stepC : 1;
+    assign stepd = (sw == 16'b0010000100110101) ? stepD : 1;
+    square_color u4 (CLOCK, stepu, top);
+    square_color u5 (CLOCK, stepc, middle);
+    square_color u6 (CLOCK, stepd,bottom);
     always @ (posedge CLOCK)
     begin
     if (x >= 42 && x <= 51 && y>=5 && y <= 14)
