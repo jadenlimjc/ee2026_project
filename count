@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 04.10.2024 16:01:23
+// Create Date: 08.10.2024 00:30:21
 // Design Name: 
 // Module Name: count
 // Project Name: 
@@ -20,16 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module count(input button,output reg [2:0] step = 1);
+module count (
+    input button,
+    input start,
+    output reg [2:0] step = 1
+);
+
 always @ (posedge button)
 begin
-if (step < 4)
+if (start)
     begin
-    step = step + 1;
-    end
+    if (step < 4)
+        begin
+        step = step + 1;
+        end
+    else
+        begin 
+        step = 1;
+        end
 else
-    begin 
-    step = 1;
+    begin
+    step = step;
     end
 end
 
