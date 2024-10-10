@@ -48,6 +48,7 @@ module task_c2 (
 
     wire [6:0] col; 
     wire [6:0] row;
+    reg rerun;
     assign col = pixel_index % SCREEN_WIDTH;
     assign row = pixel_index / SCREEN_WIDTH;
 
@@ -110,6 +111,7 @@ module task_c2 (
     always @(posedge green_clk) begin
         if (sw != taskCPw) begin
             current_state <= INIT;
+            rerun <= 0;
         end else begin
             case (current_state)
                 INIT: begin
@@ -147,12 +149,12 @@ module task_c2 (
                 end
                 
                 WAIT_DOWN: begin
-                    wait_counter <= wait_counter + 1;
-                    if (wait_counter >= 45) begin
-                        current_state <= MOVE_LEFT;
-                        wait_counter <= 0;
-                    end
+                wait_counter <= wait_counter + 1;
+                if (wait_counter >= 45) begin
+                    current_state <= MOVE_LEFT;
+                    wait_counter <= 0;
                 end
+            end
     
                 MOVE_LEFT: begin
                     if (green_x > MIN_X) begin
@@ -197,6 +199,7 @@ module task_c2 (
                         red_x <= red_x - 2;
                     end else begin
                         current_state = INIT;
+                        rerun = 1;
                     end
                 end
             endcase
@@ -212,6 +215,14 @@ module task_c2 (
                     row >= 4 && row < 4 + SQUARE_SIZE) begin
                     colour <= GREEN;  // Draw the square
                 end
+                else if (rerun &&((col >= 6 && col < 90 && 
+                        row >= 4 && row < 19) || //top line
+                        (col >= 75 && col < 90 &&
+                        row >= 4 && row < 60) || //right line
+                        (col >= 6 && col < 90 &&
+                        row >= 45 && row < 60))) begin //bottom line
+                        colour <= RED;
+                end
                 else begin
                     colour <= BLACK;  // Background color
                 end
@@ -221,6 +232,14 @@ module task_c2 (
                     row >= MIN_Y && row < green_y + SQUARE_SIZE) begin
                     colour <= GREEN;
                 end
+                else if (rerun &&((col >= 6 && col < 90 && 
+                        row >= 4 && row < 19) || //top line
+                        (col >= 75 && col < 90 &&
+                        row >= 4 && row < 60) || //right line
+                        (col >= 6 && col < 90 &&
+                        row >= 45 && row < 60))) begin //bottom line
+                        colour <= RED;
+                end
                 else begin
                     colour <= BLACK;
                 end
@@ -229,6 +248,14 @@ module task_c2 (
                 if (col >= MIN_X && col < green_x + SQUARE_SIZE &&
                     row >= MIN_Y && row < green_y + SQUARE_SIZE) begin
                     colour <= GREEN;
+                end
+                else if (rerun &&((col >= 6 && col < 90 && 
+                        row >= 4 && row < 19) || //top line
+                        (col >= 75 && col < 90 &&
+                        row >= 4 && row < 60) || //right line
+                        (col >= 6 && col < 90 &&
+                        row >= 45 && row < 60))) begin //bottom line
+                        colour <= RED;
                 end
                 else begin
                     colour <= BLACK;
@@ -242,6 +269,14 @@ module task_c2 (
                     row >= MIN_Y && row < green_y + SQUARE_SIZE)) begin
                     colour <= GREEN;
                 end
+                else if (rerun &&((col >= 6 && col < 90 && 
+                        row >= 4 && row < 19) || //top line
+                        (col >= 75 && col < 90 &&
+                        row >= 4 && row < 60) || //right line
+                        (col >= 6 && col < 90 &&
+                        row >= 45 && row < 60))) begin //bottom line
+                        colour <= RED;
+                end
                 else begin
                     colour <= BLACK;
                 end
@@ -253,6 +288,14 @@ module task_c2 (
                     (col >= 75 && col < 90 &&
                     row >= MIN_Y && row < green_y + SQUARE_SIZE)) begin
                     colour <= GREEN;
+                end
+                else if (rerun &&((col >= 6 && col < 90 && 
+                        row >= 4 && row < 19) || //top line
+                        (col >= 75 && col < 90 &&
+                        row >= 4 && row < 60) || //right line
+                        (col >= 6 && col < 90 &&
+                        row >= 45 && row < 60))) begin //bottom line
+                        colour <= RED;
                 end
                 else begin
                     colour <= BLACK;
@@ -266,6 +309,14 @@ module task_c2 (
                     (col >= green_x && col < 90 &&
                     row >= 45 && row < 60)) begin
                     colour<= GREEN;
+                end
+                else if (rerun &&((col >= 6 && col < 90 && 
+                        row >= 4 && row < 19) || //top line
+                        (col >= 75 && col < 90 &&
+                        row >= 4 && row < 60) || //right line
+                        (col >= 6 && col < 90 &&
+                        row >= 45 && row < 60))) begin //bottom line
+                        colour <= RED;
                 end
                 else begin
                     colour <= BLACK;
@@ -354,7 +405,7 @@ module task_c2 (
                 else begin
                     colour <= BLACK;
                 end                  
-            end                        
+            end
         endcase  
     end
 
