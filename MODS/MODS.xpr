@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/royce/Downloads/MODS_draft.xpr/MODS/.Xil/Vivado-30640-DESKTOP-E00BO44/PrjAr/_X_/MODS.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/royce/Desktop/EE2026/ee2026_project/MODS/MODS.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="6b627595541d4c87ade4c83778e31331"/>
@@ -22,6 +22,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
@@ -284,13 +285,13 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/MODS/archive_project_summary.txt">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../archive_project_summary.txt"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/MODS_draft.xpr/MODS/archive_project_summary.txt"/>
           <Attr Name="ImportTime" Val="1728493509"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/debouncer_a.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../MODS.srcs/sources_1/new/debouncer_a.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/new/debouncer_a.v"/>
           <Attr Name="ImportTime" Val="1728498458"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -299,7 +300,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/count_a.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../MODS.srcs/sources_1/new/count_a.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/new/count_a.v"/>
           <Attr Name="ImportTime" Val="1728500645"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
