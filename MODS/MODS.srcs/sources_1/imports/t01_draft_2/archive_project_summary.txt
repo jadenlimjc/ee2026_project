@@ -1,0 +1,248 @@
+***************************************************************************************
+*                      PROJECT ARCHIVE SUMMARY REPORT
+*
+*                      (archive_project_summary.txt)
+*
+*  PLEASE READ THIS REPORT TO GET THE DETAILED INFORMATION ABOUT THE PROJECT DATA THAT
+*  WAS ARCHIVED FOR THE CURRENT PROJECT
+*
+* The report is divided into following five sections:-
+*
+* Section (1) - PROJECT INFORMATION
+*  This section provides the details of the current project that was archived
+*
+* Section (2) - INCLUDED/EXCLUDED RUNS
+*  This section summarizes the list of design runs for which the results were included
+*  or excluded from the archive
+*
+* Section (3) - ARCHIVED SOURCES
+*  This section summarizes the list of files that were added to the archive
+*
+* Section (3.1) - INCLUDE FILES
+*  This section summarizes the list of 'include' files that were added to the archive
+*
+* Section (3.1.1) - INCLUDE_DIRS SETTINGS
+*  This section summarizes the 'verilog include directory' path settings, if any
+*
+* Section (3.2) - REMOTE SOURCES
+*  This section summarizes the list of referenced 'remote' files that were 'imported'
+*  into the archived project
+*
+* Section (3.3) - SOURCES SUMMARY
+*  This section summarizes the list of all the files present in the archive
+*
+* Section (3.4) - REMOTE IP DEFINITIONS
+*  This section summarizes the list of all the remote IP's present in the archive
+*
+* Section (4) - JOURNAL/LOG FILES
+*  This section summarizes the list of journal/log files that were added to the archive
+*
+* Section (5) - CONFIGURATION SETTINGS/FILES
+*  This section summarizes the configuration settings/files that were added to the archive
+*
+***************************************************************************************
+
+Section (1) - PROJECT INFORMATION
+---------------------------------
+Name      = MODS
+Directory = C:/Users/User/Downloads/MODS
+
+WARNING: Please verify the compiled library directory path for the following property in the
+         current project. The path may point to an invalid location after opening this project.
+         This could happen if the project was unarchived in a location where this path is not
+         accessible. To resolve this issue, please set this property with the desired path
+         before launching simulation:-
+
+Property = compxlib.xsim_compiled_library_dir
+Path     = 
+
+Section (2) - INCLUDED RUNS
+---------------------------
+The run results were included for the following runs in the archived project:-
+
+<synth_1>
+<blk_mem_gen_img_synth_1>
+<blk_mem_gen_const_synth_1>
+<impl_1>
+
+Section (3) - ARCHIVED SOURCES
+------------------------------
+The following sub-sections describes the list of sources that were archived for the current project:-
+
+Section (3.1) - INCLUDE FILES
+-----------------------------
+List of referenced 'RTL Include' files that were 'imported' into the archived project:-
+
+None
+
+Section (3.1.1) - INCLUDE_DIRS SETTINGS
+---------------------------------------
+List of the "INCLUDE_DIRS" fileset property settings that may or may not be applicable in the archived
+project, since most the 'RTL Include' files referenced in the original project were 'imported' into the
+archived project.
+
+<sources_1> fileset RTL include directory paths (INCLUDE_DIRS):-
+None
+
+<sim_1> fileset RTL include directory paths (INCLUDE_DIRS):-
+None
+
+Section (3.2) - REMOTE SOURCES
+------------------------------
+List of referenced 'remote' design files that were 'imported' into the archived project:-
+
+<blk_mem_gen_const>
+c:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-16932-DESKTOP-HVL0GTD/PrjAr/_X_/MODS.srcs/sources_1/imports/res/weights.coe
+
+<blk_mem_gen_img>
+c:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-16932-DESKTOP-HVL0GTD/PrjAr/_X_/MODS.srcs/sources_1/imports/res/00.coe
+
+<constrs_1>
+None
+
+<sim_1>
+None
+
+<sources_1>
+C:/Users/User/Downloads/MODS/archive_project_summary.txt
+
+Section (3.3) - SOURCES SUMMARY
+-------------------------------
+List of all the source files present in the archived project:-
+
+<sources_1>
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/doc/blk_mem_gen_v8_4_changelog.txt
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.vho
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.veo
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/summary.log
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/misc/blk_mem_gen_v8_4.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/simulation/blk_mem_gen_v8_4.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/sim/blk_mem_gen_inter.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.dcp
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter_stub.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter_stub.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter_sim_netlist.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter_sim_netlist.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter_ooc.xdc
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/synth/blk_mem_gen_inter.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xml
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/doc/blk_mem_gen_v8_4_changelog.txt
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.vho
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.veo
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/summary.log
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/misc/blk_mem_gen_v8_4.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/simulation/blk_mem_gen_v8_4.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/sim/blk_mem_gen_0.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.dcp
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0_stub.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0_stub.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0_sim_netlist.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0_sim_netlist.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0_ooc.xdc
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/synth/blk_mem_gen_0.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xml
+./MODS.srcs/sources_1/new/CanvasTransfer.v
+./MODS.srcs/sources_1/imports/Desktop/Oled_Display.v
+./MODS.srcs/sources_1/new/custom_clock.v
+./MODS.srcs/sources_1/new/module_pack.v
+./MODS.srcs/sources_1/new/neural_net.v
+./MODS.srcs/sources_1/new/ss_display.v
+./MODS.srcs/sources_1/new/Top_Student.v
+./MODS.srcs/sources_1/imports/MouseAudioDisplay/archive_project_summary.txt
+./MODS.srcs/sources_1/imports/res/weights.coe
+./MODS.srcs/sources_1/imports/res/00.coe
+./MODS.srcs/sources_1/imports/MODS - individual/archive_project_summary.txt
+./MODS.srcs/sources_1/new/task_d.v
+./MODS.srcs/sources_1/new/create_doughnut.v
+./MODS.srcs/sources_1/new/solid_square.v
+./MODS.srcs/sources_1/new/task_a.v
+./MODS.srcs/sources_1/new/solid_circle.v
+./MODS.srcs/sources_1/new/red_border.v
+./MODS.srcs/sources_1/new/button_press.v
+./MODS.srcs/sources_1/new/count.v
+./MODS.srcs/sources_1/new/task_b.v
+./MODS.srcs/sources_1/new/square_color.v
+./MODS.srcs/sources_1/new/task_c2.v
+./MODS.srcs/sources_1/new/task_init.v
+./MODS.srcs/sources_1/imports/MODS/archive_project_summary.txt
+
+<constrs_1>
+./MODS.srcs/constrs_1/new/constraints.xdc
+
+<sim_1>
+None
+
+<blk_mem_gen_img>
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img.xci
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/doc/blk_mem_gen_v8_4_changelog.txt
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img.vho
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img.veo
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/summary.log
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/misc/blk_mem_gen_v8_4.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img.mif
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/simulation/blk_mem_gen_v8_4.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/sim/blk_mem_gen_img.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img.dcp
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img_stub.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img_stub.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img_sim_netlist.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img_sim_netlist.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img_ooc.xdc
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/synth/blk_mem_gen_img.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_img/blk_mem_gen_img.xml
+./MODS.srcs/sources_1/imports/res/00.coe
+
+<blk_mem_gen_const>
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const.xci
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/doc/blk_mem_gen_v8_4_changelog.txt
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const.vho
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const.veo
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/summary.log
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/misc/blk_mem_gen_v8_4.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const.mif
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/simulation/blk_mem_gen_v8_4.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/sim/blk_mem_gen_const.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const.dcp
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const_stub.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const_stub.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const_sim_netlist.v
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const_sim_netlist.vhdl
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const_ooc.xdc
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/synth/blk_mem_gen_const.vhd
+./MODS.srcs/sources_1/ip/blk_mem_gen_const/blk_mem_gen_const.xml
+./MODS.srcs/sources_1/imports/res/weights.coe
+
+Section (3.4) - REMOTE IP DEFINITIONS
+-------------------------------------
+List of all the remote IP's present in the archived project:-
+
+<sources_1>
+None
+
+<blk_mem_gen_img>
+None
+
+<blk_mem_gen_const>
+None
+
+Section (4) - JOURNAL/LOG FILES
+-------------------------------
+List of Journal/Log files that were added to the archived project:-
+
+Source File = C:/Users/User/AppData/Roaming/Xilinx/Vivado/vivado.jou
+Archived Location = ./MODS/vivado.jou
+
+Source File = C:/Users/User/AppData/Roaming/Xilinx/Vivado/vivado.log
+Archived Location = ./MODS/vivado.log
+
+Section (5) - CONFIGURATION SETTINGS/FILES
+------------------------------------------
+List of configuration settings/files that were added to the archived project:-
+
+

@@ -1,0 +1,107 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Thu Oct 10 03:05:30 2024
+| Host         : DESKTOP-E00BO44 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Top_Student_control_sets_placed.rpt
+| Design       : Top_Student
+| Device       : xc7a35t
+----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    36 |
+| Unused register locations in slices containing registers |    54 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |            2 |
+|      4 |            1 |
+|      6 |            4 |
+|      8 |            4 |
+|     10 |            1 |
+|     12 |            1 |
+|     14 |            2 |
+|    16+ |           21 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              84 |           31 |
+| No           | No                    | Yes                    |              18 |            3 |
+| No           | Yes                   | No                     |             636 |           87 |
+| Yes          | No                    | No                     |             144 |           25 |
+| Yes          | No                    | Yes                    |               6 |            1 |
+| Yes          | Yes                   | No                     |             386 |           52 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------+------------------------------------------------+------------------------------------------------+------------------+----------------+
+|        Clock Signal        |                  Enable Signal                 |                Set/Reset Signal                | Slice Load Count | Bel Load Count |
++----------------------------+------------------------------------------------+------------------------------------------------+------------------+----------------+
+|  clk20/CLK                 |                                                |                                                |                1 |              2 |
+| ~clksig6p25m_BUFG          |                                                |                                                |                1 |              2 |
+|  clksig1k_BUFG             |                                                |                                                |                2 |              4 |
+|  task_a/dbC/count_reg[2]_0 | task_a/dut/start_called                        | task_a/dut/count[2]_i_2_n_0                    |                1 |              6 |
+|  task_b/u8/step_reg[2]     |                                                | task_b/start__0                                |                1 |              6 |
+|  task_b/u7/pressed         |                                                | task_b/start__0                                |                1 |              6 |
+|  task_b/u9/step_reg[2]     |                                                | task_b/start__0                                |                1 |              6 |
+|  clk20/CLK                 | task_d/dir[3]_i_2_n_0                          | task_d/is_enabled                              |                1 |              8 |
+|  green_clk                 |                                                |                                                |                2 |              8 |
+|  green_clk                 | task_c/FSM_sequential_current_state[3]_i_2_n_0 | task_c/FSM_sequential_current_state[3]_i_1_n_0 |                1 |              8 |
+|  green_clk                 | task_c/red_y[5]_i_2_n_0                        | task_c/red_y[5]_i_1_n_0                        |                2 |              8 |
+|  green_clk                 | task_c/green_y[5]_i_2_n_0                      | task_c/green_y[5]_i_1_n_0                      |                2 |             10 |
+|  green_clk                 | task_c/red_x[6]_i_1_n_0                        |                                                |                5 |             12 |
+|  green_clk                 | task_c/green_x[6]_i_1_n_0                      |                                                |                5 |             14 |
+|  green_clk                 | task_c/wait_counter[0]_i_1_n_0                 |                                                |                2 |             14 |
+|  clk20/CLK                 | task_d/ptr_y                                   | task_d/is_enabled                              |                3 |             16 |
+|  clk20/CLK                 | task_d/ptr_x                                   | task_d/is_enabled                              |                3 |             16 |
+|  clk25m/CLK                |                                                |                                                |                7 |             16 |
+| ~clksig6p25m_BUFG          |                                                | oled/frame_counter[16]_i_1_n_0                 |                5 |             34 |
+| ~clksig6p25m_BUFG          | oled/delay[0]_i_1_n_0                          |                                                |                5 |             40 |
+|  clk_IBUF_BUFG             |                                                |                                                |               18 |             52 |
+|  clk_IBUF_BUFG             |                                                | clockD/clear                                   |                8 |             64 |
+|  clk_IBUF_BUFG             |                                                | task_c/green_clock/clear                       |                8 |             64 |
+|  clk_IBUF_BUFG             | btn_IBUF[1]                                    | task_b/u7/count_reg[31]_0                      |                8 |             64 |
+|  clk_IBUF_BUFG             | btn_IBUF[0]                                    | task_b/u8/count_reg[31]_0                      |                8 |             64 |
+|  clk_IBUF_BUFG             | btn_IBUF[4]                                    | task_b/u9/count[0]_i_1__1_n_0                  |                8 |             64 |
+| ~clksig6p25m_BUFG          | oled/state                                     |                                                |                8 |             64 |
+|  clk_IBUF_BUFG             |                                                | clk1k/clear                                    |                8 |             64 |
+|  clk_IBUF_BUFG             |                                                | clk20/clear                                    |                8 |             64 |
+|  clk_IBUF_BUFG             |                                                | clk25m/clear                                   |                8 |             64 |
+|  clk_IBUF_BUFG             |                                                | clk6p25m/clear                                 |                8 |             64 |
+|  clk_IBUF_BUFG             |                                                | clockAC/clear                                  |                8 |             64 |
+|  clk_IBUF_BUFG             |                                                | clockB/clear                                   |                8 |             64 |
+|  clksig1k_BUFG             | btn_IBUF[1]                                    | task_b/u7/count_reg[31]_0                      |                8 |             64 |
+|  clksig1k_BUFG             | btn_IBUF[0]                                    | task_b/u8/count_reg[31]_0                      |                8 |             64 |
+| ~clksig6p25m_BUFG          |                                                | oled/spi_word[39]_i_1_n_0                      |               18 |             90 |
++----------------------------+------------------------------------------------+------------------------------------------------+------------------+----------------+
+
+

@@ -1,0 +1,387 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Oct 10 01:06:17 2024
+# Process ID: 30640
+# Current directory: C:/Users/royce/Downloads/MODS_draft.xpr/MODS
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20696 C:\Users\royce\Downloads\MODS_draft.xpr\MODS\MODS.xpr
+# Log file: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/vivado.log
+# Journal file: C:/Users/royce/Downloads/MODS_draft.xpr/MODS\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/irwin/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-11132-DESKTOP-C6PHKFA/PrjAr/_X_' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 809.535 ; gain = 92.625
+reset_run blk_mem_gen_img_synth_1
+reset_run blk_mem_gen_const_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_img'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_const'...
+[Thu Oct 10 01:14:24 2024] Launched blk_mem_gen_img_synth_1, blk_mem_gen_const_synth_1...
+Run output will be captured here:
+blk_mem_gen_img_synth_1: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/blk_mem_gen_img_synth_1/runme.log
+blk_mem_gen_const_synth_1: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/blk_mem_gen_const_synth_1/runme.log
+[Thu Oct 10 01:14:24 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 853.609 ; gain = 13.863
+close [ open C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/new/debouncer_a.v w ]
+add_files C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/new/debouncer_a.v
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 01:18:51 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 01:29:45 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+close [ open C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/new/count_a.v w ]
+add_files C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/new/count_a.v
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 01:37:29 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 01:38:56 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 01:41:09 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+open_hw
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 01:42:13 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 01:43:51 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.2
+  **** Build date : Jun 14 2018-20:42:52
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183714210A
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:00:34 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:00:56 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:02:07 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:06:27 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+[Thu Oct 10 02:06:27 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:17:50 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:18:52 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:22:33 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+[Thu Oct 10 02:22:33 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:24:49 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:27:41 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:28:55 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:37:16 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+[Thu Oct 10 02:37:16 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+WARNING: [Vivado 12-872] Run step 'Design Initialization' is out-of-date.
+[Thu Oct 10 02:41:30 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:43:30 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+[Thu Oct 10 02:43:30 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:50:10 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+[Thu Oct 10 02:50:10 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183714210A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183714210A
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 02:55:14 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+[Thu Oct 10 02:55:14 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_inter/blk_mem_gen_inter.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci' is already up-to-date
+[Thu Oct 10 03:04:10 2024] Launched synth_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/synth_1/runme.log
+[Thu Oct 10 03:04:10 2024] Launched impl_1...
+Run output will be captured here: C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/royce/Downloads/MODS_draft.xpr/MODS/MODS.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+archive_project C:/Users/royce/Downloads/MODS_draft.xpr/Week_8_S1_01.xpr.zip -temp_dir C:/Users/royce/Downloads/MODS_draft.xpr/MODS/.Xil/Vivado-30640-DESKTOP-E00BO44 -force -include_local_ip_cache -include_config_settings
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/.Xil/Vivado-30640-DESKTOP-E00BO44' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [ProjectBase 1-495] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience any problem with archiving the project, please consider setting environment variable $TEMP to a shorter path.
+Current project path is 'C:/Users/royce/Downloads/MODS_draft.xpr/MODS/.Xil/Vivado-30640-DESKTOP-E00BO44/PrjAr/_X_'.
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'blk_mem_gen_img_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'blk_mem_gen_const_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'blk_mem_gen_img_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'blk_mem_gen_const_impl_1'...
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'blk_mem_gen_const'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'blk_mem_gen_const'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'blk_mem_gen_img'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'blk_mem_gen_img'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'
