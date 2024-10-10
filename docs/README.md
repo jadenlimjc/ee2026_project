@@ -8,6 +8,6 @@ This repository contains the source code for EE2026 Project
 
 **Royce Wong**
 
-**Irwin Tan**
+**Irwin Teo**
 
 **Nicholas Tan**
