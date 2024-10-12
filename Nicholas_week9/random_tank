@@ -1,0 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12.10.2024 13:18:01
+// Design Name: 
+// Module Name: random_xy_tank
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module random_xy_tank(input CLOCK,output reg [7:0] x, output reg [6:0] y);
+reg [7:0] lfsr_x = 8'b10101010;  // Initial value for x LFSR
+reg [6:0] lfsr_y = 7'b1010101;   // Initial value for y LFSR
+wire feedback_x, feedback_y;
+assign feedback_x = lfsr_x[7] ^ lfsr_x[5] ^ lfsr_x[4] ^ lfsr_x[3];  // Feedback for x
+assign feedback_y = lfsr_y[6] ^ lfsr_y[5]; 
+always @ (posedge CLOCK)
+begin
+lfsr_x <= {lfsr_x[6:0], feedback_x};
+lfsr_y <= {lfsr_y[5:0], feedback_y};
+x <= lfsr_x % 96;  // Random x in range 0-95
+y <= lfsr_y % 64;  // Random y in range 0-63
+end
+endmodule
