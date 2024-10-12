@@ -1,0 +1,72 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10.10.2024 16:07:03
+// Design Name: 
+// Module Name: position_counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module position_counter(input CLOCK, input [7:0] x, input [6:0] y, input [2:0] dir, input shoot,
+ output reg [2:0] led, output reg [7:0] xpos = 100, output reg [6:0] ypos = 100);
+flexible_clock u1 (.clk(CLOCK), .cycle_delay(4999999), .clock_signal(slow_clk_10hz));
+parameter RIGHT = 3'b100;
+parameter LEFT = 3'b001;
+parameter UP  = 3'b010;
+parameter DOWN = 3'b011;
+parameter GETOUT = 100;
+reg [7:0] nextx = 0;
+reg [6:0] nexty = 0;
+reg is_moving = 0;
+wire hit, hit_tank;
+is_hit u2 (.opp_tankx(14),.opp_tanky(14),.projx(xpos),.projy(ypos),.hit(hit),.hit_tank(hit_tank));
+always @ (posedge slow_clk_10hz or posedge shoot)
+begin
+if (shoot)
+    begin
+    xpos <= x;
+    ypos <= y;
+    nextx <= x;
+    nexty <= y;
+    is_moving <= 1;
+    led[2] <= 1;
+    end
+else
+begin
+    if (is_moving)
+        begin
+            if (hit || hit_tank)
+                begin
+                is_moving <= 0;
+                xpos <= GETOUT;
+                ypos <= GETOUT;
+                led[2] <= 1;
+                end
+            else begin
+            xpos <= nextx;
+            ypos <= nexty;
+            case (dir)
+                UP: nexty <= nexty - 1;
+                DOWN: nexty <= nexty + 1;
+                LEFT: nextx <= nextx - 1;
+                RIGHT: nextx <= nextx + 1;
+            endcase
+            led[2] <= 0;
+            end
+     end
+end
+end
+endmodule
