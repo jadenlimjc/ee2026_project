@@ -1,0 +1,47 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12.10.2024 12:43:59
+// Design Name: 
+// Module Name: direction
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module direction(input up, down,left,right, output reg [2:0] dir = 0);
+parameter RIGHT = 3'b100;
+parameter LEFT = 3'b001;
+parameter UP  = 3'b010;
+parameter DOWN = 3'b011;
+always @ (posedge up, posedge down, posedge left, posedge right)
+begin
+if (up)
+    begin
+    dir = UP;
+    end
+else if (down)
+    begin
+    dir = DOWN;
+    end
+else if (left)
+    begin
+    dir = LEFT;
+    end
+else if (right)
+    begin
+    dir = RIGHT;
+    end
+end
+endmodule
