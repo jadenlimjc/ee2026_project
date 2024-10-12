@@ -1,0 +1,73 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10.10.2024 15:39:57
+// Design Name: 
+// Module Name: combined
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module combined(input CLOCK, btnC, btnU,btnD,btnL,btnR, output [7:0] JC, output [15:0] led);
+wire fire_button, shoot,up,down,left,right;
+wire [2:0] dir;
+button_press u1 (.CLOCK(CLOCK), .button(btnC), .pressed(fire_button));
+button_press u2 (.CLOCK(CLOCK),.button(btnU),.pressed(up));
+button_press u3 (.CLOCK(CLOCK),.button(btnD),.pressed(down));
+button_press u4 (.CLOCK(CLOCK),.button(btnL),.pressed(left));
+button_press u5 (.CLOCK(CLOCK),.button(btnR),.pressed(right));
+direction u6 (.up(up),.down(down),.left(left),.right(right),.dir(dir)); //direction of tank
+assign led[15] = fire_button;
+    wire clksig6p25m;
+    wire slow_clk_25hz;
+    wire slower_clk;
+    flexible_clock u7 (.clk(CLOCK), .cycle_delay(7), .clock_signal(clksig6p25m));
+    flexible_clock u8 (.clk(CLOCK),.cycle_delay(1999999),.clock_signal(slow_clk_25hz));
+    flexible_clock u9 (.clk(CLOCK),.cycle_delay(4999999),.clock_signal(slower_clk));
+    wire [7:0] sync_tankx;
+    wire [6:0] sync_tanky;
+    wire [7:0] tankx;
+    wire [6:0] tanky;
+    syncer u10 (.slower_clk(slower_clk),.tankx(tankx),.tanky(tanky), 
+    .sync_tankx(sync_tankx),.sync_tanky(sync_tanky)); //sync both tank position clock and projectile clock together
+    random_xy_tank(.CLOCK(slow_clk_25hz), .x(tankx),.y(tanky)); //random tank positions at a diff clock speed from projectile
+    wire [15:0] pixel_data;
+    wire [12:0] pixel_index;
+    wire sending_pixels;
+    wire sample_pixel;
+    wire frame_begin;
+Oled_Display oled (
+        .clk(clksig6p25m),
+        .reset(0),
+        .frame_begin(frame_begin), 
+        .sending_pixels(sending_pixels),
+        .sample_pixel(sample_pixel), 
+        .pixel_index(pixel_index), 
+        .pixel_data(pixel_data), 
+        .cs(JC[0]), 
+        .sdin(JC[1]), 
+        .sclk(JC[3]), 
+        .d_cn(JC[4]), 
+        .resn(JC[5]), 
+        .vccen(JC[6]),
+        .pmoden(JC[7])
+    );
+    wire [7:0] xpos;
+    wire [6:0] ypos;
+    wire hit,hit_tank;
+    position_counter u11 (.CLOCK(CLOCK), .x(sync_tankx),.y(sync_tanky), 
+    .dir(dir),.shoot(fire_button), .led({led[13],led[12],led[11]}), .xpos(xpos), .ypos(ypos)); //logic for projectile
+    projectile_display u12 (.x(xpos),.y(ypos), .pixel_index(pixel_index),.pixel_data(pixel_data), .led(led[14]));
+endmodule
