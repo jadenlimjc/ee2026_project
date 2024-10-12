@@ -1,0 +1,30 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12.10.2024 14:39:31
+// Design Name: 
+// Module Name: syncer
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module syncer(input slower_clk, input [7:0] tankx, input [6:0] tanky, output reg [7:0] sync_tankx, 
+output reg [6:0] sync_tanky);
+always @ (posedge slower_clk)
+begin
+sync_tankx <= tankx;
+sync_tanky <= tanky;
+end
+endmodule
