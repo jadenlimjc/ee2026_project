@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 11.10.2024 08:52:22
+// Design Name: 
+// Module Name: is_hit
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module is_hit(input [7:0] opp_tankx, input [6:0] opp_tanky, input [7:0] projx, input [6:0] projy, 
+output reg hit = 0, output reg hit_tank = 0);
+parameter xmin = 0;
+parameter xmax = 95;
+parameter ymin = 0;
+parameter ymax = 63;
+//boundary checking
+//wall checking
+//tank checking
+always @ (projx,projy)
+begin
+    if (projx > xmax || projx < xmin || projy > ymax || projy < ymin)
+        begin
+        hit <= 1;
+        end
+    else
+        begin
+        hit <= 0;
+        end
+end
+endmodule
