@@ -2,8 +2,8 @@ import os
 import subprocess
 
 # Directories for Input/Output
-input_dir = '/Users/jaden/NUS/Y2S1/EE2026/mainmenu'  # Directory with your images
-output_dir = '/Users/jaden/NUS/Y2S1/EE2026/ee2026_project/mainmenu_output'  # Directory for converted files
+input_dir = '/Users/jaden/NUS/Y2S1/EE2026/image'  # Directory with your images
+output_dir = '/Users/jaden/NUS/Y2S1/EE2026/ee2026_project/menu_output'  # Directory for converted files
 
 # Parameters for picture2pixel library
 width = 96
