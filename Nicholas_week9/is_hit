@@ -20,12 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module is_hit(input [7:0] opp_tankx, input [6:0] opp_tanky, input [7:0] projx, input [6:0] projy, 
-output reg hit = 0, output reg hit_tank = 0);
+module is_hit(input [7:0] opp_tankx, input [6:0] opp_tanky, input [2:0] tankdir, input [7:0] projx, input [6:0] projy, 
+output reg hit_wall = 0, output reg hit_tank = 0);
 parameter xmin = 0;
 parameter xmax = 95;
 parameter ymin = 0;
 parameter ymax = 63;
+parameter TANK_WIDTH = 3;
+parameter TANK_HEIGHT = 3;
+parameter RIGHT = 3'b100;
+parameter LEFT = 3'b001;
+parameter UP  = 3'b010;
+parameter DOWN = 3'b011;
 //boundary checking
 //wall checking
 //tank checking
@@ -33,11 +39,24 @@ always @ (projx,projy)
 begin
     if (projx > xmax || projx < xmin || projy > ymax || projy < ymin)
         begin
-        hit <= 1;
+        hit_wall <= 1;
         end
     else
         begin
-        hit <= 0;
+        hit_wall <= 0;
         end
+    case (tankdir)
+        UP: begin
+        if ((projx >= opp_tankx && projx < opp_tankx + TANK_WIDTH) &&  // Projectile is within the X bounds of the tank
+                        (projy >= opp_tanky && projy < opp_tanky + TANK_HEIGHT))   // Projectile is within the Y bounds of the tank, tankx,tanky is top left ptr
+           begin
+           hit_tank <= 1;
+           end
+        else
+            begin
+           hit_tank <= 0;
+           end
+        end
+    endcase
 end
 endmodule
