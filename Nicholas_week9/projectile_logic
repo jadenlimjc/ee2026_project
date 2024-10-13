@@ -20,19 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module position_counter(input CLOCK, input [7:0] x, input [6:0] y, input [2:0] dir, input shoot,
+module position_counter(input CLOCK, input [7:0] x, input [6:0] y, input [2:0] dir, input shoot, input hit,
  output reg [2:0] led, output reg [7:0] xpos = 100, output reg [6:0] ypos = 100);
 flexible_clock u1 (.clk(CLOCK), .cycle_delay(4999999), .clock_signal(slow_clk_10hz));
 parameter RIGHT = 3'b100;
 parameter LEFT = 3'b001;
 parameter UP  = 3'b010;
 parameter DOWN = 3'b011;
-parameter GETOUT = 100;
 reg [7:0] nextx = 0;
 reg [6:0] nexty = 0;
 reg is_moving = 0;
-wire hit, hit_tank;
-is_hit u2 (.opp_tankx(14),.opp_tanky(14),.projx(xpos),.projy(ypos),.hit(hit),.hit_tank(hit_tank));
 always @ (posedge slow_clk_10hz or posedge shoot)
 begin
 if (shoot)
@@ -48,11 +45,9 @@ else
 begin
     if (is_moving)
         begin
-            if (hit || hit_tank)
+            if (hit)
                 begin
                 is_moving <= 0;
-                xpos <= GETOUT;
-                ypos <= GETOUT;
                 led[2] <= 1;
                 end
             else begin
