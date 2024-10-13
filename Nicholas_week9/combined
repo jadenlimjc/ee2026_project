@@ -28,7 +28,7 @@ button_press u2 (.CLOCK(CLOCK),.button(btnU),.pressed(up));
 button_press u3 (.CLOCK(CLOCK),.button(btnD),.pressed(down));
 button_press u4 (.CLOCK(CLOCK),.button(btnL),.pressed(left));
 button_press u5 (.CLOCK(CLOCK),.button(btnR),.pressed(right));
-direction u6 (.up(up),.down(down),.left(left),.right(right),.dir(dir)); //direction of tank
+direction u6 (.up(up),.down(down),.left(left),.right(right),.dir(dir));
 assign led[15] = fire_button;
     wire clksig6p25m;
     wire slow_clk_25hz;
@@ -41,8 +41,8 @@ assign led[15] = fire_button;
     wire [7:0] tankx;
     wire [6:0] tanky;
     syncer u10 (.slower_clk(slower_clk),.tankx(tankx),.tanky(tanky), 
-    .sync_tankx(sync_tankx),.sync_tanky(sync_tanky)); //sync both tank position clock and projectile clock together
-    random_xy_tank(.CLOCK(slow_clk_25hz), .x(tankx),.y(tanky)); //random tank positions at a diff clock speed from projectile
+    .sync_tankx(sync_tankx),.sync_tanky(sync_tanky));
+    random_xy_tank(.CLOCK(slow_clk_25hz), .x(tankx),.y(tanky));
     wire [15:0] pixel_data;
     wire [12:0] pixel_index;
     wire sending_pixels;
@@ -66,8 +66,12 @@ Oled_Display oled (
     );
     wire [7:0] xpos;
     wire [6:0] ypos;
-    wire hit,hit_tank;
-    position_counter u11 (.CLOCK(CLOCK), .x(sync_tankx),.y(sync_tanky), 
-    .dir(dir),.shoot(fire_button), .led({led[13],led[12],led[11]}), .xpos(xpos), .ypos(ypos)); //logic for projectile
-    projectile_display u12 (.x(xpos),.y(ypos), .pixel_index(pixel_index),.pixel_data(pixel_data), .led(led[14]));
+    wire hit_wall,hit_tank,hit;
+    parameter UP = 3'b010;
+    assign hit = (hit_wall || hit_tank) ? 1 : 0;
+    position_counter u11 (.CLOCK(CLOCK), .x(14),.y(63), 
+    .dir(dir),.shoot(fire_button),.hit(hit), .led({led[13],led[12],led[11]}), .xpos(xpos), .ypos(ypos));
+    is_hit u12  (.opp_tankx(14),.opp_tanky(14),.tankdir(UP),.projx(xpos),.projy(ypos),.hit_wall(hit_wall),.hit_tank(hit_tank));
+    projectile_display u13 (.projx(xpos),.projy(ypos), .pixel_index(pixel_index),.pixel_data(pixel_data),
+    .opp_tankx(14), .opp_tanky(14),.hit(hit), .led(led[14]));
 endmodule
