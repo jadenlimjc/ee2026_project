@@ -14,7 +14,7 @@ def generate_code(input_folder, output_file):
                 outfile.write(content)
                 outfile.write("end\n")
 
-input_folder = "/Users/jaden/NUS/Y2S1/EE2026/ee2026_project/output"
-output_file = "output.txt"
+input_folder = "/Users/jaden/NUS/Y2S1/EE2026/ee2026_project/mainmenu_output"
+output_file = "mainmenu_output.txt"
 
 generate_code(input_folder, output_file)
