@@ -20,39 +20,70 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module is_hit(input [7:0] opp_tankx, input [6:0] opp_tanky, input [7:0] projx, input [6:0] projy, 
-output reg hit_wall = 0, output reg hit_tank = 0);
+module is_hit (
+    
+    input [15:0] xpos_bus,    // Bus for all projectile x positions
+    input [15:0] ypos_bus,    // Bus for all projectile y positions
+    input [7:0] opp_tankx,                     // Opponent tank x position
+    input [7:0] opp_tanky,                     // Opponent tank y position
+    output reg [1:0] hit_wall = 0, // Output array for each projectile's wall hit status
+    output reg [1:0] hit_tank = 0  // Output array for each projectile's tank hit status
+);
+parameter MAX_PROJECTILES = 2;
 parameter xmin = 0;
 parameter xmax = 95;
 parameter ymin = 0;
 parameter ymax = 63;
 parameter TANK_WIDTH = 3;
 parameter TANK_HEIGHT = 3;
-parameter RIGHT = 3'b100;
-parameter LEFT = 3'b001;
-parameter UP  = 3'b010;
-parameter DOWN = 3'b011;
-//boundary checking
-//wall checking
-//tank checking
-always @ (projx,projy)
-begin
-    if (projx > xmax || projx < xmin || projy > ymax || projy < ymin)
-        begin
-        hit_wall <= 1;
+
+reg [7:0] xpos [0:MAX_PROJECTILES-1];  // Array for individual projectile x positions
+reg [7:0] ypos [0:MAX_PROJECTILES-1];  // Array for individual projectile y positions
+
+integer i;
+
+always @(xpos_bus,ypos_bus) begin
+    // Extract xpos and ypos from the buses
+    xpos[0] = xpos_bus[7:0];
+    xpos[1] = xpos_bus[15:8];
+    ypos[0] = ypos_bus[7:0];
+    ypos[1] = ypos_bus[15:8];
+   
+
+    // Iterate through all projectiles
+ 
+        // Wall hit detection
+        if (xpos[0] > xmax || xpos[0] < xmin || ypos[0] > ymax || ypos[0] < ymin) begin
+            hit_wall[0] <= 1;
+        end else begin
+            hit_wall[0] <= 0;
         end
-    else
-        begin
-        hit_wall <= 0;
+
+        if (xpos[1] > xmax || xpos[1] < xmin || ypos[1] > ymax || ypos[1] < ymin) begin
+            hit_wall[1] <= 1;
+        end else begin
+            hit_wall[1] <= 0;
         end
-    if ((projx >= opp_tankx && projx < opp_tankx + TANK_WIDTH) &&  // Projectile is within the X bounds of the tank
-                        (projy >= opp_tanky && projy < opp_tanky + TANK_HEIGHT))   // Projectile is within the Y bounds of the tank
+       
+
+        // Tank hit detection
+        if ((xpos[0] >= opp_tankx && xpos[0] < opp_tankx + TANK_WIDTH) &&  // Projectile in X bounds of tank
+            (ypos[0] >= opp_tanky && ypos[0] < opp_tanky + TANK_HEIGHT))   // Projectile in Y bounds of tank
         begin
-        hit_tank <= 1;
+            hit_tank[0] <= 1;
+        end else begin
+            hit_tank[0] <= 0;
         end
-    else
+    
+        if ((xpos[1] >= opp_tankx && xpos[1] < opp_tankx + TANK_WIDTH) &&  // Projectile in X bounds of tank
+           (ypos[1] >= opp_tanky && ypos[1] < opp_tanky + TANK_HEIGHT))   // Projectile in Y bounds of tank
         begin
-        hit_tank <= 0;
+           hit_tank[1] <= 1;
+        end else begin
+           hit_tank[1] <= 0;
         end
+        
 end
+
 endmodule
+
