@@ -31,18 +31,18 @@ button_press u5 (.CLOCK(CLOCK),.button(btnR),.pressed(right));
 direction u6 (.up(up),.down(down),.left(left),.right(right),.dir(dir));
 assign led[15] = fire_button;
     wire clksig6p25m;
-    wire slow_clk_25hz;
-    wire slower_clk;
+    wire slow_clk_10hz;
+    wire proj_clk;
     flexible_clock u7 (.clk(CLOCK), .cycle_delay(7), .clock_signal(clksig6p25m));
-    flexible_clock u8 (.clk(CLOCK),.cycle_delay(1999999),.clock_signal(slow_clk_25hz));
-    flexible_clock u9 (.clk(CLOCK),.cycle_delay(4999999),.clock_signal(slower_clk));
+    flexible_clock u8 (.clk(CLOCK),.cycle_delay(4999999),.clock_signal(slow_clk_10hz));
+    flexible_clock u9 (.clk(CLOCK),.cycle_delay(2499999),.clock_signal(proj_clk));
     wire [7:0] sync_tankx;
-    wire [6:0] sync_tanky;
+    wire [7:0] sync_tanky;
     wire [7:0] tankx;
-    wire [6:0] tanky;
-    syncer u10 (.slower_clk(slower_clk),.tankx(tankx),.tanky(tanky), 
+    wire [7:0] tanky;
+    syncer u10 (.slower_clk(proj_clk),.tankx(tankx),.tanky(tanky), 
     .sync_tankx(sync_tankx),.sync_tanky(sync_tanky));
-    random_xy_tank(.CLOCK(slow_clk_25hz), .x(tankx),.y(tanky));
+    random_xy_tank(.CLOCK(slow_clk_10hz), .x(tankx),.y(tanky));
     wire [15:0] pixel_data;
     wire [12:0] pixel_index;
     wire sending_pixels;
@@ -64,13 +64,36 @@ Oled_Display oled (
         .vccen(JC[6]),
         .pmoden(JC[7])
     );
-    wire [7:0] xpos;
-    wire [6:0] ypos;
-    wire hit_wall,hit_tank,hit;
-    assign hit = (hit_wall || hit_tank) ? 1 : 0;
-    position_counter u11 (.CLOCK(CLOCK), .x(14),.y(63), 
-    .dir(dir),.shoot(fire_button),.hit(hit), .led({led[13],led[12],led[11]}), .xpos(xpos), .ypos(ypos));
-    is_hit u12  (.opp_tankx(14),.opp_tanky(14),.projx(xpos),.projy(ypos),.hit_wall(hit_wall),.hit_tank(hit_tank));
-    projectile_display u13 (.projx(xpos),.projy(ypos), .pixel_index(pixel_index),.pixel_data(pixel_data),
-    .opp_tankx(14), .opp_tanky(14),.hit(hit), .led(led[14]));
+    parameter MAX_PROJECTILES=2;
+    wire [8*MAX_PROJECTILES - 1:0] xpos_bus;  // Bus for all projectile x positions
+    wire [8*MAX_PROJECTILES - 1:0] ypos_bus;  // Bus for all projectile y positions
+    wire [MAX_PROJECTILES-1:0] hit_wall,hit_tank;
+    position_counter u11 (.CLOCK(CLOCK), 
+    .x(14),
+    .y(63), 
+    .dir(dir),
+    .shoot(btnC),
+    .hit_wall(hit_wall),
+    .hit_tank(hit_tank),
+     .led({led[13],led[12],led[11]}), 
+     .xpos_bus(xpos_bus), 
+     .ypos_bus(ypos_bus)
+     );
+     
+    is_hit u12  (.opp_tankx(14),
+    .opp_tanky(14),
+    .xpos_bus(xpos_bus),
+    .ypos_bus(ypos_bus),
+    .hit_wall(hit_wall),
+    .hit_tank(hit_tank));
+    
+    projectile_display u13 (.projx_bus(xpos_bus),
+    .projy_bus(ypos_bus), 
+    .pixel_index(pixel_index),
+    .pixel_data(pixel_data),
+    .opp_tankx(14), 
+    .opp_tanky(14),
+    .hit_wall(hit_wall),
+    .hit_tank(hit_tank),
+    .led(led[14]));
 endmodule
