@@ -1,73 +1,110 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10.10.2024 16:07:03
-// Design Name: 
-// Module Name: position_counter
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-
-module position_counter(input CLOCK, input [7:0] x, input [6:0] y, input [2:0] dir, input shoot, input hit,
- output reg [2:0] led, output reg [7:0] xpos = 100, output reg [6:0] ypos = 100);
-flexible_clock u1 (.clk(CLOCK), .cycle_delay(4999999), .clock_signal(slow_clk_10hz));
+module position_counter
+    (
+    input CLOCK, 
+    input [7:0] x, input [7:0] y,  // x and y are both 8-bit values
+    input [2:0] dir, 
+    input shoot, 
+    input [1:0] hit_wall,
+    input [1:0] hit_tank,
+    output reg [2:0] led = 0,
+    output reg [15:0] xpos_bus = 0,  // bus for projectile x positions (8 bits per projectile)
+    output reg [15:0] ypos_bus = 0   // bus for projectile y positions (8 bits per projectile)
+    
+);
+  // Allow up to 5 active projectiles at once
+flexible_clock u1 (.clk(CLOCK), .cycle_delay(2499999), .clock_signal(slow_clk_20hz));
+parameter MAX_PROJECTILES = 2;
 parameter RIGHT = 3'b100;
 parameter LEFT = 3'b001;
 parameter UP  = 3'b010;
 parameter DOWN = 3'b011;
-reg [7:0] nextx = 0;
-reg [6:0] nexty = 0;
-reg [2:0] shootdir = 0;
-reg is_moving = 0;
-always @ (posedge slow_clk_10hz or posedge shoot)
-begin
-if (shoot)
-    begin
-    if (!is_moving)
-    begin
-    xpos <= x;
-    ypos <= y;
-    nextx <= x;
-    nexty <= y;
-    is_moving <= 1;
-    shootdir = dir;
-    led[2] <= 1;
-    end
-    end
-else
-begin
-    if (is_moving)
-        begin
-            if (hit)
-                begin
-                is_moving <= 0;
-                led[2] <= 1;
-                end
-            else begin
-            xpos <= nextx;
-            ypos <= nexty;
-            case (shootdir)
-                UP: nexty <= nexty - 1;
-                DOWN: nexty <= nexty + 1;
-                LEFT: nextx <= nextx - 1;
-                RIGHT: nextx <= nextx + 1;
-            endcase
-            led[2] <= 0;
-            end
-     end
-end
-end
 
+reg [7:0] nextx [0:MAX_PROJECTILES-1];  // each projectile's next x-position (8 bits)
+reg [7:0] nexty [0:MAX_PROJECTILES-1];  // each projectile's next y-position (8 bits)
+reg [2:0] shootdir [0:MAX_PROJECTILES-1];  // direction for each projectile
+reg active = 0;  // active status for each projectile (1 bit)
+reg active1 = 0;
+integer i;
+
+initial begin
+shootdir[0] = 3'b0;
+shootdir[1] = 3'b0;
+nextx[0] = 8'b0;
+nextx[1] = 8'b0;
+nexty[0] = 8'b0;
+nexty[1] = 8'b0;
+end
+reg [1:0] fire_counter = 0;
+reg shoot_prev = 0;
+wire shoot_edge = (shoot && !shoot_prev);
+always @ (posedge slow_clk_20hz)
+begin
+    shoot_prev <= shoot;
+    if (shoot_edge) begin
+        // Handle firing of projectiles individually
+        case (fire_counter)
+            2'b00: begin
+            if (!active) begin
+                xpos_bus[7:0] <= x;
+                ypos_bus[7:0] <= y;
+                nextx[0] <= x;
+                nexty[0] <= y;
+                shootdir[0] = dir;
+                active <= 1;
+                fire_counter <= 2'b01;
+                end 
+            end
+            2'b01: begin
+            if (!active1) begin
+                xpos_bus[15:8] <= x;
+                ypos_bus[15:8] <= y;
+                nextx[1] <= x;
+                nexty[1] <= y;
+                shootdir[1] = dir;
+                active1 <= 1;
+                fire_counter <= 2'b00;
+            end
+            end
+       endcase
+    end
+    else begin
+        // Move each active projectile
+            if (active) begin
+                if (hit_wall[0] || hit_tank[0]) begin
+                    active <= 0;  // Deactivate on hit
+                    led[0] <= 0;
+                end else 
+                    begin
+                    xpos_bus[7:0] <= nextx[0];
+                    ypos_bus[7:0] <= nexty[0];
+                    case (shootdir[0])
+                        UP: nexty[0] <= nexty[0] - 1;
+                        DOWN: nexty[0] <= nexty[0] + 1;
+                        LEFT: nextx[0] <= nextx[0] - 1;
+                        RIGHT: nextx[0] <= nextx[0] + 1;
+                    endcase
+                    led[0] <= 1;  // reset led
+                    end
+            end
+            if (active1) begin
+               if (hit_wall[1] || hit_tank[1]) begin
+               active1 <= 0;  // Deactivate on hit
+               led[1] <= 0;
+               end else begin
+                xpos_bus[15:8] <= nextx[1];
+                ypos_bus[15:8] <= nexty[1];
+               case (shootdir[1])
+               UP: nexty[1] <= nexty[1] - 1;
+               DOWN: nexty[1] <= nexty[1] + 1;
+               LEFT: nextx[1] <= nextx[1] - 1;
+               RIGHT: nextx[1] <= nextx[1] + 1;
+               endcase
+               led[1] <= 1;  // reset led
+               end
+            end
+    end
+//    xpos_bus = {xpos[1],xpos[0]};
+//    ypos_bus = {ypos[1],ypos[0]}; cannot doesnt work
+end
 endmodule
