@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module combined(input CLOCK, btnC, btnU,btnD,btnL,btnR, output [7:0] JC, output [15:0] led);
+module combined(input switch,switch1,switch2, CLOCK, btnC, btnU,btnD,btnL,btnR, output [7:0] JC, output [15:0] led);
 wire fire_button, shoot,up,down,left,right;
 wire [2:0] dir;
 button_press u1 (.CLOCK(CLOCK), .button(btnC), .pressed(fire_button));
@@ -64,7 +64,7 @@ Oled_Display oled (
         .vccen(JC[6]),
         .pmoden(JC[7])
     );
-    parameter MAX_PROJECTILES=2;
+    parameter MAX_PROJECTILES=3;
     wire [8*MAX_PROJECTILES - 1:0] xpos_bus;  // Bus for all projectile x positions
     wire [8*MAX_PROJECTILES - 1:0] ypos_bus;  // Bus for all projectile y positions
     wire [MAX_PROJECTILES-1:0] hit_wall,hit_tank;
@@ -75,9 +75,11 @@ Oled_Display oled (
     .shoot(btnC),
     .hit_wall(hit_wall),
     .hit_tank(hit_tank),
-     .led({led[13],led[12],led[11]}), 
+     .led({led[4],led[3],led[2]}), 
      .xpos_bus(xpos_bus), 
-     .ypos_bus(ypos_bus)
+     .ypos_bus(ypos_bus),
+     .switch(switch),
+     .switch1(switch2)
      );
      
     is_hit u12  (.opp_tankx(14),
@@ -85,7 +87,8 @@ Oled_Display oled (
     .xpos_bus(xpos_bus),
     .ypos_bus(ypos_bus),
     .hit_wall(hit_wall),
-    .hit_tank(hit_tank));
+    .hit_tank(hit_tank),
+    .switch(switch1));
     
     projectile_display u13 (.projx_bus(xpos_bus),
     .projy_bus(ypos_bus), 
