@@ -21,15 +21,15 @@
 
 
 module is_hit (
-    
-    input [15:0] xpos_bus,    // Bus for all projectile x positions
-    input [15:0] ypos_bus,    // Bus for all projectile y positions
+    input switch,
+    input [23:0] xpos_bus,    // Bus for all projectile x positions
+    input [23:0] ypos_bus,    // Bus for all projectile y positions
     input [7:0] opp_tankx,                     // Opponent tank x position
     input [7:0] opp_tanky,                     // Opponent tank y position
-    output reg [1:0] hit_wall = 0, // Output array for each projectile's wall hit status
-    output reg [1:0] hit_tank = 0  // Output array for each projectile's tank hit status
+    output reg [2:0] hit_wall = 0, // Output array for each projectile's wall hit status
+    output reg [2:0] hit_tank = 0  // Output array for each projectile's tank hit status
 );
-parameter MAX_PROJECTILES = 2;
+parameter MAX_PROJECTILES = 3;
 parameter xmin = 0;
 parameter xmax = 95;
 parameter ymin = 0;
@@ -46,9 +46,10 @@ always @(xpos_bus,ypos_bus) begin
     // Extract xpos and ypos from the buses
     xpos[0] = xpos_bus[7:0];
     xpos[1] = xpos_bus[15:8];
+    xpos[2] = xpos_bus[23:16];
     ypos[0] = ypos_bus[7:0];
     ypos[1] = ypos_bus[15:8];
-   
+    ypos[2] = ypos_bus[23:16];
 
     // Iterate through all projectiles
  
@@ -65,7 +66,18 @@ always @(xpos_bus,ypos_bus) begin
             hit_wall[1] <= 0;
         end
        
-
+        if (xpos[2] > xmax || xpos[2] < xmin || ypos[2] > ymax || ypos[2] < ymin) begin
+            hit_wall[2] <= 1;
+        end else begin
+            hit_wall[2] <= 0;
+        end
+        
+        if (switch==1) begin
+            hit_tank = 0;
+            //did this to simulate a projectile passing through walls but passing through tanks
+            //can add extreme boundaries here so projectile eventually disappears
+        end
+        else begin
         // Tank hit detection
         if ((xpos[0] >= opp_tankx && xpos[0] < opp_tankx + TANK_WIDTH) &&  // Projectile in X bounds of tank
             (ypos[0] >= opp_tanky && ypos[0] < opp_tanky + TANK_HEIGHT))   // Projectile in Y bounds of tank
@@ -83,6 +95,15 @@ always @(xpos_bus,ypos_bus) begin
            hit_tank[1] <= 0;
         end
         
+        if ((xpos[2] >= opp_tankx && xpos[2] < opp_tankx + TANK_WIDTH) &&  // Projectile in X bounds of tank
+                   (ypos[2] >= opp_tanky && ypos[2] < opp_tanky + TANK_HEIGHT))   // Projectile in Y bounds of tank
+        begin
+           hit_tank[2] <= 1;
+        end else begin
+           hit_tank[2] <= 0;
+        end
+        
+        end
 end
 
 endmodule
